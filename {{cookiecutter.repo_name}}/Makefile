@@ -32,6 +32,7 @@ create_environment:
 	)
 
 sync_data_to_s3:
+	if aws s3 ls "s3://$(BUCKET)" 2>&1 | grep -q 'NoSuchBucket'; then aws s3 mb s3://$(BUCKET); fi
 	aws s3 sync $(PROJECT_DIR)/data/ s3://$(BUCKET)/data/ --exclude "*.DS_Store"
 	aws s3 sync $(PROJECT_DIR)/models/ s3://$(BUCKET)/models/ --exclude "*.DS_Store"
 

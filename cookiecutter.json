@@ -1,6 +1,6 @@
 {
     "project_name": "project_name",
-    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "repo_name": "{{ cookiecutter.project_name|lower|replace(' ', '-')|replace('_', '-') }}",
     "author_name": "Your name (or your organization/company/team)",
     "description": "A short description of the project.",
     "s3_bucket": "{{ cookiecutter.repo_name }}",
