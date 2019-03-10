@@ -16,11 +16,21 @@ else
 	PYTHON_INTERPRETER_LOCATION=`pyenv which $(PYTHON_INTERPRETER)`
 endif
 
+ifeq (,$(shell which virtualenvwrapper.sh))
+	HAS_VIRTUALENVWRAPPER=False
+else
+	HAS_VIRTUALENVWRAPPER=True
+endif
+
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
 
 create_environment: ## Create Python virtual environment and install dependencies.
+ifeq (True,$(HAS_VIRTUALENVWRAPPER))
+	@echo "Virtualenvwrapper detected..."
+	@source `which virtualenvwrapper.sh` && mkvirtualenv -a $(PROJECT_DIR) -r $(PROJECT_DIR)/requirements.txt -p $(PYTHON_INTERPRETER_LOCATION) $(PROJECT_NAME)
+else
 	@echo "Installing virtualenv if not already installed..."
 	@pip install --user -q virtualenv
 	@echo "Creating environment..."
@@ -30,6 +40,7 @@ create_environment: ## Create Python virtual environment and install dependencie
 		pip install -U pip setuptools wheel;\
 		pip install -r $(PROJECT_DIR)/requirements.txt;\
 	)
+endif
 
 sync_data_to_s3: ## Sync data and models folders to S3. Will create bucket it doesn't already exist.
 	if aws s3 ls "s3://$(BUCKET)" --profile $(PROFILE) 2>&1 | grep -q 'NoSuchBucket'; then aws s3 mb s3://$(BUCKET); fi
