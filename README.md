@@ -37,6 +37,7 @@ To start a new project, run:
 cookiecutter https://github.com/smoothml/cookiecutter-simple-data-science
 ```
 You will be asked to provide the variables described below.
+
 | Variable | Description |
 | -------- | ----------- |
 | `project_name` | Name of your project. |
