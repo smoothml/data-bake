@@ -20,7 +20,7 @@ endif
 # COMMANDS                                                                      #
 #################################################################################
 
-create_environment:
+create_environment: ## Create Python virtual environment and install dependencies.
 	@echo "Installing virtualenv if not already installed..."
 	@pip install --user -q virtualenv
 	@echo "Creating environment..."
@@ -31,12 +31,12 @@ create_environment:
 		pip install -r $(PROJECT_DIR)/requirements.txt;\
 	)
 
-sync_data_to_s3:
+sync_data_to_s3: ## Sync data and models folders to S3. Will create bucket it doesn't already exist.
 	if aws s3 ls "s3://$(BUCKET)" --profile $(PROFILE) 2>&1 | grep -q 'NoSuchBucket'; then aws s3 mb s3://$(BUCKET); fi
 	aws s3 sync $(PROJECT_DIR)/data/ s3://$(BUCKET)/data/ --profile $(PROFILE) --exclude "*.DS_Store"
 	aws s3 sync $(PROJECT_DIR)/models/ s3://$(BUCKET)/models/ --profile $(PROFILE) --exclude "*.DS_Store"
 
-sync_data_from_s3:
+sync_data_from_s3: ## Sync data and models folders from S3.
 	aws s3 sync s3://$(BUCKET)/data/ $(PROJECT_DIR)/data/ --profile $(PROFILE) --exclude "*.DS_Store"
 	aws s3 sync s3://$(BUCKET)/models/ $(PROJECT_DIR)/models --profile $(PROFILE) --exclude "*.DS_Store" 
 
@@ -44,59 +44,9 @@ sync_data_from_s3:
 # Self Documenting Commands                                                     #
 #################################################################################
 
-.DEFAULT_GOAL := show-help
+.DEFAULT_GOAL := help
 
-# Inspired by <http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html>
-# sed script explained:
-# /^##/:
-# 	* save line in hold space
-# 	* purge line
-# 	* Loop:
-# 		* append newline + line to hold space
-# 		* go to next line
-# 		* if line starts with doc comment, strip comment character off and loop
-# 	* remove target prerequisites
-# 	* append hold space (+ newline) to line
-# 	* replace newline plus comments by `---`
-# 	* print line
-# Separate expressions are necessary because labels cannot be delimited by
-# semicolon; see <http://stackoverflow.com/a/11799865/1968>
-.PHONY: show-help
-show-help:
-	@echo "$$(tput bold)Available rules:$$(tput sgr0)"
-	@echo
-	@sed -n -e "/^## / { \
-		h; \
-		s/.*//; \
-		:doc" \
-		-e "H; \
-		n; \
-		s/^## //; \
-		t doc" \
-		-e "s/:.*//; \
-		G; \
-		s/\\n## /---/; \
-		s/\\n/ /g; \
-		p; \
-	}" ${MAKEFILE_LIST} \
-	| LC_ALL='C' sort --ignore-case \
-	| awk -F '---' \
-		-v ncol=$$(tput cols) \
-		-v indent=19 \
-		-v col_on="$$(tput setaf 6)" \
-		-v col_off="$$(tput sgr0)" \
-	'{ \
-		printf "%s%*s%s ", col_on, -indent, $$1, col_off; \
-		n = split($$2, words, " "); \
-		line_length = ncol - indent; \
-		for (i = 1; i <= n; i++) { \
-			line_length -= length(words[i]) + 1; \
-			if (line_length <= 0) { \
-				line_length = ncol - indent - length(words[i]) - 1; \
-				printf "\n%*s ", -indent, " "; \
-			} \
-			printf "%s ", words[i]; \
-		} \
-		printf "\n"; \
-	}' \
-| more $(shell test $(shell uname) = Darwin && echo '--no-init --raw-control-chars')
+.PHONY: help
+
+help:
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
