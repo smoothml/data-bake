@@ -46,6 +46,7 @@ The resulting project structure is:
 │                          <step>.<version>-<initials>-<description>.ipynb
 │                          For example 01.0-PH-really-interesting-analysis.ipynb.
 ├ outputs               <- Generated outputs, such as figures or reports.
+├ resources             <- Useful resources (e.g. relevant papers).
 ├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
 ├ setup.py              <- Allows pip installation of src as a package.
 └ src                   <- Source code for use in the project.
