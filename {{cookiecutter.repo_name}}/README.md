@@ -12,10 +12,10 @@
 | Command                   | Description |
 | ------------------------- | ----------- |
 | `make create_environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
-| `make sync_data_to_s3`    | Sync data and models to [Amazon S3](https://aws.amazon.com/s3/) bucket {{ cookiecutter.s3_bucket }}. |
-| `make sync_data_from_s3`  | Sync data and models from [Amazon S3](https://aws.amazon.com/s3/) bucket {{ cookiecutter.s3_bucket }}. |
+| `make sync_data_to_s3`    | Sync data and models to [Amazon S3](https://aws.amazon.com/s3/) bucket `{{ cookiecutter.s3_bucket }}`. |
+| `make sync_data_from_s3`  | Sync data and models from [Amazon S3](https://aws.amazon.com/s3/) bucket `{{ cookiecutter.s3_bucket }}`. |
 
-Note, syncing to S3 for the first time will create the bucket {{ cookiecutter.s3_bucket }} if it does not already exist.
+Note, syncing to S3 for the first time will create the bucket `{{ cookiecutter.s3_bucket }}` if it does not already exist.
 
 ## Project Structure
 ```
