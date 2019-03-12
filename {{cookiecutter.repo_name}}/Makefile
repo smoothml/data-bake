@@ -11,8 +11,10 @@ PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
 
 ifeq (,$(shell which pyenv))
+	HAS_PYENV=False
 	PYTHON_INTERPRETER_LOCATION=`which $(PYTHON_INTERPRETER)`
 else
+	HAS_PYENV=True
 	PYTHON_INTERPRETER_LOCATION=`pyenv which $(PYTHON_INTERPRETER)`
 endif
 
@@ -29,7 +31,11 @@ endif
 create_environment: ## Create Python virtual environment and install dependencies.
 ifeq (True,$(HAS_VIRTUALENVWRAPPER))
 	@echo "Virtualenvwrapper detected..."
+ifeq (True,$(HAS_PYENV))
+	@source `pyenv which virtualenvwrapper.sh` && mkvirtualenv -a $(PROJECT_DIR) -r $(PROJECT_DIR)/requirements.txt -p $(PYTHON_INTERPRETER_LOCATION) $(PROJECT_NAME)
+else
 	@source `which virtualenvwrapper.sh` && mkvirtualenv -a $(PROJECT_DIR) -r $(PROJECT_DIR)/requirements.txt -p $(PYTHON_INTERPRETER_LOCATION) $(PROJECT_NAME)
+endif
 else
 	@echo "Installing virtualenv if not already installed..."
 	@pip install --user -q virtualenv
