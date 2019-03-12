@@ -2,6 +2,21 @@
 
 {{ cookiecutter.description }}
 
+## Requirements
+* [GNU Make](https://www.gnu.org/software/make/)
+* {{ cookiecutter.python_interpreter|capitalize }}
+
+## Usage
+### `make` commands
+
+| Command                   | Description |
+| ------------------------- | ----------- |
+| `make create_environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
+| `make sync_data_to_s3`    | Sync data and models to [Amazon S3](https://aws.amazon.com/s3/) bucket {{ cookiecutter.s3_bucket }}. |
+| `make sync_data_from_s3`  | Sync data and models from [Amazon S3](https://aws.amazon.com/s3/) bucket {{ cookiecutter.s3_bucket }}. |
+
+Note, syncing to S3 for the first time will create the bucket {{ cookiecutter.s3_bucket }} if it does not already exist.
+
 ## Project Structure
 ```
 {{ cookiecutter.repo_name }}
@@ -27,3 +42,4 @@
 ```
 
 <p><small>Project based on the <a href="https://cookiecutter.readthedocs.io">Cookiecutter</a> <a href="https://github.com/smoothml/cookiecutter-simple-data-science">simple data science</a> project template.</p>
+\
