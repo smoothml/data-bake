@@ -4,7 +4,7 @@ A template data science project structure. This is a simplified version of the e
 ## Assumptions
 This project template makes certain assumptions. These are:
 * Your data science project uses Python.
-* You're working in a *nix environment. Cookiecutter will give you project structure in Windows, but some feateures of this template may not work.
+* You're working in a *nix environment. Cookiecutter will give you project structure in Windows, but some features of this template may not work.
 * You're using AWS for data storage. Support for other cloud providers will be added at a later date.
 
 ## Requirements
