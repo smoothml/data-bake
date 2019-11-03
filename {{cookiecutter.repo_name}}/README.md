@@ -4,7 +4,7 @@
 
 ## Requirements
 * [GNU Make](https://www.gnu.org/software/make/)
-* {{ cookiecutter.python_interpreter|capitalize }}
+* >= Python 3.5
 
 ## Usage
 ### `make` commands
