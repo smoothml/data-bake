@@ -8,7 +8,7 @@ PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BUCKET = {{ cookiecutter.s3_bucket }}
 PROFILE = {{ cookiecutter.aws_profile }}
 PROJECT_NAME = {{ cookiecutter.repo_name }}
-PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
+PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which pyenv))
 	HAS_PYENV=False
@@ -37,10 +37,8 @@ else
 	@source `which virtualenvwrapper.sh` && mkvirtualenv -a $(PROJECT_DIR) -r $(PROJECT_DIR)/requirements.txt -p $(PYTHON_INTERPRETER_LOCATION) $(PROJECT_NAME)
 endif
 else
-	@echo "Installing virtualenv if not already installed..."
-	@pip install --user -q virtualenv
 	@echo "Creating environment..."
-	@virtualenv -p $(PYTHON_INTERPRETER_LOCATION) $(PROJECT_DIR)/venv
+	@$(PYTHON_INTERPRETER_LOCATION) -m venv $(PROJECT_DIR)/venv
 	@( \
 		. $(PROJECT_DIR)/venv/bin/activate;\
 		pip install -U pip setuptools wheel;\

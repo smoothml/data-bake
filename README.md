@@ -8,7 +8,7 @@ This project template makes certain assumptions. These are:
 * You're using AWS for data storage. Support for other cloud providers will be added at a later date.
 
 ## Requirements
-* Python >= 3.5 or Python 2.7.
+* Python >= 3.5.
 * [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.6.0
 
 ## Usage
@@ -22,11 +22,11 @@ You will be asked to provide the variables described below.
 | -------- | ----------- |
 | `project_name` | Name of your project. |
 | `repo_name` | Name of your repository. Defaults to lower case `project_name` with spaces and underscores replaced with hyphens. |
+| `package_name` | Name of your source code package. Defaults to `repo_name` with underscores instead of hyphens. |
 | `author_name` | Your name, or name of your project or organization. |
 | `description` | A short description of your project. |
 | `s3_bucket` | Name of Amazon S3 bucket for storing your data and models. If you're not using S3 leave this as the default value and never speak of it again! |
 | `aws_profile` | Name of AWS profile for accessing the S3 bucket. Again, if you're not using S3 ignore this. |
-| `python_interpreter` | Deafults to Python 3. Unless you have a _very specific_ reason for using Python 2, use Python 3. |
 | `license` | A choice of several open source licenses. Choose "None" if your project is not open source. |
 
 The resulting project structure is:
