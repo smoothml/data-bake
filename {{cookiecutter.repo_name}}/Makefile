@@ -5,8 +5,6 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = {{ cookiecutter.s3_bucket }}
-PROFILE = {{ cookiecutter.aws_profile }}
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = python3
 
@@ -45,15 +43,6 @@ else
 		pip install -r $(PROJECT_DIR)/requirements.txt;\
 	)
 endif
-
-sync_data_to_s3: ## Sync data and models folders to S3. Will create bucket it doesn't already exist.
-	if aws s3 ls "s3://$(BUCKET)" --profile $(PROFILE) 2>&1 | grep -q 'NoSuchBucket'; then aws s3 mb s3://$(BUCKET); fi
-	aws s3 sync $(PROJECT_DIR)/data/ s3://$(BUCKET)/data/ --profile $(PROFILE) --exclude "*.DS_Store"
-	aws s3 sync $(PROJECT_DIR)/models/ s3://$(BUCKET)/models/ --profile $(PROFILE) --exclude "*.DS_Store"
-
-sync_data_from_s3: ## Sync data and models folders from S3.
-	aws s3 sync s3://$(BUCKET)/data/ $(PROJECT_DIR)/data/ --profile $(PROFILE) --exclude "*.DS_Store"
-	aws s3 sync s3://$(BUCKET)/models/ $(PROJECT_DIR)/models --profile $(PROFILE) --exclude "*.DS_Store" 
 
 #################################################################################
 # Self Documenting Commands                                                     #

@@ -2,5 +2,15 @@
 -e ./src
 
 # external requirements
-awscli
 python-dotenv>=0.5.1
+{% if cookiecutter.dvc_remote_type == 'Amazon S3' %}
+dvc[s3]
+{% elif cookiecutter.dvc_remote_type == 'Google Cloud Storage' %}
+dvc[gs]
+{% elif cookiecutter.dvc_remote_type == 'Azure' %}
+dvc[azure]
+{% elif cookiecutter.dvc_remote_type == 'SSH' %}
+dvc[ssh]
+{% elif cookiecutter.dvc_remote_type == 'HDFS' %}
+dvc
+{% endif %}
