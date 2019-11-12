@@ -4,7 +4,7 @@
 
 ## Requirements
 * [GNU Make](https://www.gnu.org/software/make/)
-* >= Python 3.5
+* Python 3.5 or above
 
 ## Usage
 ### `make` commands
@@ -30,16 +30,17 @@ Note, syncing to S3 for the first time will create the bucket `{{ cookiecutter.s
 │   ├ raw               <- Original, immutable raw data sets.
 │   └ results           <- Results of modelling and analysis.
 ├ models                <- Trained and serialized models, model predictions, or model summaries.
-├ notebooks             <- Jupyter notebooks. Naming convention is a of the form
-│                          <step>.<version>-<initials>-<description>.ipynb
-│                          For example 01.0-PH-really-interesting-analysis.ipynb.
+├ notebooks             <- Jupyter notebooks.
 ├ outputs               <- Generated outputs, such as figures or reports.
 ├ resources             <- Useful resources (e.g. relevant papers).
 ├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
-├ setup.py              <- Allows pip installation of src as a package.
-└ src                   <- Source code for use in the project.
-    └ __init__.py
+└ src                   <- Source code for use in the project comprising a Python package and tests.
+    ├ {{ cookiecutter.package_name }}
+    │   ├ __init__.py
+    │   ├ config.py
+    │   └ VERSION
+    ├ tests
+    │   └ __init__.py
+    └ setup.py
 ```
-
-<p><small>Project based on the <a href="https://cookiecutter.readthedocs.io">Cookiecutter</a> <a href="https://github.com/smoothml/cookiecutter-simple-data-science">simple data science</a> project template.</p>
-\
+Project based on the [Cookiecutter](https://cookiecutter.readthedocs.io) [simple data science](https://github.com/smoothml/cookiecutter-simple-data-science) project template.
