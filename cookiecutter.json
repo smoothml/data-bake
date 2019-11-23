@@ -5,19 +5,19 @@
     "author_name": "Your name (or your organization/company/team)",
     "description": "A short description of the project.",
     "dvc_remote_type": [
-	"Amazon S3",
-	"Google Cloud Storage",
-        "Azure",
-	"SSH",
-	"HDFS",
-	"None"
+		"Amazon S3",
+		"Google Cloud Storage",
+		"Azure",
+		"SSH",
+		"HDFS",
+		"None"
     ],
     "license": [
-	"MIT",
-	"BSD license",
-	"ISC license",
-	"Apache Software License 2.0",
-	"GNU General Public License v3",
-	"None"
+		"MIT",
+		"BSD license",
+		"ISC license",
+		"Apache Software License 2.0",
+		"GNU General Public License v3",
+		"None"
     ]
 }
