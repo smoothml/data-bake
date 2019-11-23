@@ -12,7 +12,10 @@
 | Command                   | Description |
 | ------------------------- | ----------- |
 | `make create_environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
-
+{% if cookiecutter.dvc_remote_type != 'None' %}
+### Data Management
+This project uses [DVC](https://dvc.org/) with the {{ cookiecutter.dvc_remote_type }} remote type to manage data and model versioning. Please see the [DVC documentation](https://dvc.org/doc) for usage instructions.
+{% endif %}
 ## Project Structure
 ```
 {{ cookiecutter.repo_name }}
@@ -33,7 +36,6 @@
 └ src                   <- Source code for use in the project comprising a Python package and tests.
     ├ {{ cookiecutter.package_name }}
     │   ├ __init__.py
-    │   ├ config.py
     │   └ VERSION
     ├ tests
     │   └ __init__.py
