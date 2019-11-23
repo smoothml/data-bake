@@ -12,11 +12,10 @@
 | Command                   | Description |
 | ------------------------- | ----------- |
 | `make create_environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
-| `make sync_data_to_s3`    | Sync data and models to [Amazon S3](https://aws.amazon.com/s3/) bucket `{{ cookiecutter.s3_bucket }}`. |
-| `make sync_data_from_s3`  | Sync data and models from [Amazon S3](https://aws.amazon.com/s3/) bucket `{{ cookiecutter.s3_bucket }}`. |
-
-Note, syncing to S3 for the first time will create the bucket `{{ cookiecutter.s3_bucket }}` if it does not already exist.
-
+{% if cookiecutter.dvc_remote_type != 'None' %}
+### Data Management
+This project uses [DVC](https://dvc.org/) with the {{ cookiecutter.dvc_remote_type }} remote type to manage data and model versioning. Please see the [DVC documentation](https://dvc.org/doc) for usage instructions.
+{% endif %}
 ## Project Structure
 ```
 {{ cookiecutter.repo_name }}
@@ -37,7 +36,6 @@ Note, syncing to S3 for the first time will create the bucket `{{ cookiecutter.s
 └ src                   <- Source code for use in the project comprising a Python package and tests.
     ├ {{ cookiecutter.package_name }}
     │   ├ __init__.py
-    │   ├ config.py
     │   └ VERSION
     ├ tests
     │   └ __init__.py

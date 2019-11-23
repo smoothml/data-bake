@@ -4,7 +4,20 @@
     "package_name": "{{ cookiecutter.repo_name|replace('-', '_') }}",
     "author_name": "Your name (or your organization/company/team)",
     "description": "A short description of the project.",
-    "s3_bucket": "{{ cookiecutter.repo_name }}",
-    "aws_profile": "default",
-    "license": ["MIT", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "None"]
+    "dvc_remote_type": [
+		"Amazon S3",
+		"Google Cloud Storage",
+		"Azure",
+		"SSH",
+		"HDFS",
+		"None"
+    ],
+    "license": [
+		"MIT",
+		"BSD license",
+		"ISC license",
+		"Apache Software License 2.0",
+		"GNU General Public License v3",
+		"None"
+    ]
 }
