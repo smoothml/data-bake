@@ -1,4 +1,4 @@
-.PHONY: create_environment sync_data_to_s3 sync_data_from_s3
+.PHONY: create_environment
 
 #################################################################################
 # GLOBALS                                                                       #
