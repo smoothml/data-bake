@@ -36,7 +36,6 @@ This project uses [DVC](https://dvc.org/) with the {{ cookiecutter.dvc_remote_ty
 └ src                   <- Source code for use in the project comprising a Python package and tests.
     ├ {{ cookiecutter.package_name }}
     │   ├ __init__.py
-    │   └ VERSION
     ├ tests
     │   └ __init__.py
     └ setup.py

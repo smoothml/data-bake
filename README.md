@@ -50,5 +50,9 @@ The resulting project structure is:
 ├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
 ├ setup.py              <- Allows pip installation of src as a package.
 └ src                   <- Source code for use in the project.
-    └ __init__.py
+    ├ package_name
+    │   ├ __init__.py
+    ├ tests
+    │   └ __init__.py
+    └ setup.py
 ```
