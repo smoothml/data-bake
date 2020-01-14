@@ -1,4 +1,4 @@
-.PHONY: create-environment clean
+.PHONY: create-environment clean lint
 
 #################################################################################
 # GLOBALS                                                                       #
