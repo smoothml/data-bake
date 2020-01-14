@@ -52,7 +52,6 @@ The resulting project structure is:
 └ src                   <- Source code for use in the project.
     ├ package_name
     │   ├ __init__.py
-    │   └ VERSION
     ├ tests
     │   └ __init__.py
     └ setup.py
