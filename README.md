@@ -5,11 +5,11 @@ A template data science project structure. This is a simplified version of the e
 This project template makes certain assumptions. These are:
 * Your data science project uses Python.
 * You're working in a *nix environment. Cookiecutter will give you project structure in Windows, but some features of this template may not work.
-* You're using AWS for data storage. Support for other cloud providers will be added at a later date.
 
 ## Requirements
 * Python >= 3.5.
 * [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.6.0
+* [Make](https://www.gnu.org/software/make/)
 
 ## Usage
 To start a new project, run:
@@ -25,8 +25,7 @@ You will be asked to provide the variables described below.
 | `package_name` | Name of your source code package. Defaults to `repo_name` with underscores instead of hyphens. |
 | `author_name` | Your name, or name of your project or organization. |
 | `description` | A short description of your project. |
-| `s3_bucket` | Name of Amazon S3 bucket for storing your data and models. If you're not using S3 leave this as the default value and never speak of it again! |
-| `aws_profile` | Name of AWS profile for accessing the S3 bucket. Again, if you're not using S3 ignore this. |
+| `dvc_remote_type` | Remote location for [DVC](https://dvc.org/) to use for data storage. |
 | `license` | A choice of several open source licenses. Choose "None" if your project is not open source. |
 
 The resulting project structure is:
@@ -35,6 +34,8 @@ The resulting project structure is:
 ├ README.md             <- Top-level README for project developers.
 ├ LICENSE               <- License file (unless no license was specified).
 ├ .env                  <- Secrets. DO NOT SOURCE CONTROL!
+├ .flake8               <- Flake8 configuration.
+├ .gitignore            <- Files to ignore.
 ├ data
 │   ├ external          <- Data from external sources.
 │   ├ interim           <- Intermediate, transformed data.
