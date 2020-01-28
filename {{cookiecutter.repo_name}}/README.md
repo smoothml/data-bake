@@ -13,7 +13,7 @@
 | ------------------------- | ----------- |
 | `make environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
 | `make clean` | Remove Python virtual environment. |
-| `make lint` | Run [Flake8](https://flake8.pycqa.org/en/latest/) linting. |
+| `make lint` | Run [Flake8](https://flake8.pycqa.org) linting. |
 | `make test` | Run tests with [PyTest](https://pytest.org). |
 {% if cookiecutter.dvc_remote_type != 'None' %}
 ### Data Management
