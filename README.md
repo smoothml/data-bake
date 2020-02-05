@@ -45,15 +45,14 @@ The resulting project structure is:
 │   ├ results           <- Results of modelling and analysis.
 │   └ resources         <- Useful resources (e.g. relevant papers).
 ├ models                <- Trained and serialized models, model predictions, or model summaries.
-├ notebooks             <- Jupyter notebooks. Naming convention is a of the form
+├ notebooks             <- Jupyter notebooks. Suggested naming convention is a of the form
 │                          <step>.<version>-<initials>-<description>.ipynb
 │                          For example 01.0-PH-really-interesting-analysis.ipynb.
 ├ outputs               <- Generated outputs, such as figures or reports.
-├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
-├ setup.py              <- Allows pip installation of src as a package.
+├ requirements.txt      <- Python requirements file for reproducing the analysis environment. 
 └ src                   <- Source code for use in the project.
     ├ package_name
-    │   ├ __init__.py
+    │   └ __init__.py
     ├ tests
     │   └ __init__.py
     └ setup.py

@@ -10,7 +10,7 @@
 		"Google Cloud Storage",
 		"Azure",
 		"SSH",
-		"HDFS"
+		"All"
     ],
     "license": [
 	    	"None",
