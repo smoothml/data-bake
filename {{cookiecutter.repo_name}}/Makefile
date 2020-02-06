@@ -6,7 +6,7 @@
 
 environment: ## Create Python virtual environment and install dependencies.
 	@echo "Creating environment..."
-	@python -m venv venv
+	@python3 -m venv venv
 	@( \
 		. venv/bin/activate;\
 		pip install -U pip setuptools wheel;\
