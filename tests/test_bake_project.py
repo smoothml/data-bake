@@ -33,10 +33,24 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
         rmtree(str(result.project))
 
 
-
 def test_bake_with_defaults(cookies):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
         assert result.project.basename == 'project-name'
+
+        found_toplevel_files = [f.basename for f in result.project.listdir()]
+        assert 'data' in found_toplevel_files
+        assert 'models' in found_toplevel_files
+        assert 'notebooks' in found_toplevel_files
+        assert 'outputs' in found_toplevel_files
+        assert 'src' in found_toplevel_files
+        assert '.env' in found_toplevel_files
+        assert '.gitignore' in found_toplevel_files
+        assert 'Makefile' in found_toplevel_files
+        assert 'pytest.ini' in found_toplevel_files
+        assert 'README.md' in found_toplevel_files
+        assert 'requirements.txt' in found_toplevel_files
+        assert 'setup.cfg' in found_toplevel_files
+        assert 'LICENSE' not in found_toplevel_files
