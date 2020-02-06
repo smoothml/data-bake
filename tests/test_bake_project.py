@@ -71,6 +71,4 @@ def test_bake_with_dvc(cookies):
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
-
-        requirements_file_path = result.project.join('requirements.txt')
-        assert 'dvc[s3]' in requirements_file_path.read()
+        assert 'dvc[s3]' in result.project.join('requirements.txt').read()
