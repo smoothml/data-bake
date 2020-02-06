@@ -54,3 +54,13 @@ def test_bake_with_defaults(cookies):
         assert 'requirements.txt' in found_toplevel_files
         assert 'setup.cfg' in found_toplevel_files
         assert 'LICENSE' not in found_toplevel_files
+
+
+def test_bake_with_license(cookies):
+    with bake_in_temp_dir(cookies, extra_context={'license': 'MIT'}) as result:
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        found_toplevel_files = [f.basename for f in result.project.listdir()]
+        assert 'LICENSE' in found_toplevel_files
