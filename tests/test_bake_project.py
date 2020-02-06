@@ -64,3 +64,13 @@ def test_bake_with_license(cookies):
 
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'LICENSE' in found_toplevel_files
+
+
+def test_bake_with_dvc(cookies):
+    with bake_in_temp_dir(cookies, extra_context={'dvc_remote_type': 'Amazon S3'}) as result:
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        requirements_file_path = result.project.join('requirements.txt')
+        assert 'dvc[s3]' in requirements_file_path.read()
