@@ -1,2 +1,2 @@
-cookiecutter
-pytest
+cookiecutter<2.0,>=1.7
+pytest<6.0,>=5.3

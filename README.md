@@ -8,7 +8,7 @@ This project template makes certain assumptions. These are:
 
 ## Requirements
 * Python >= 3.7.
-* [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.6.0
+* [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.7.0
 * [Make](https://www.gnu.org/software/make/)
 
 ## Usage
