@@ -34,25 +34,25 @@ The resulting project structure is:
 ├ README.md             <- Top-level README for project developers.
 ├ LICENSE               <- License file (unless no license was specified).
 ├ .env                  <- Secrets. DO NOT SOURCE CONTROL!
-├ .flake8               <- Flake8 configuration.
 ├ .gitignore            <- Files to ignore.
+├ pytest.ini            <- PyTest configuration.
+├ setup.cfg             <- Project configuration.
 ├ data
 │   ├ external          <- Data from external sources.
 │   ├ interim           <- Intermediate, transformed data.
 │   ├ processed         <- Final, canonical data sets from modelling.
 │   ├ raw               <- Original, immutable raw data sets.
-│   └ results           <- Results of modelling and analysis.
+│   ├ results           <- Results of modelling and analysis.
+│   └ resources         <- Useful resources (e.g. relevant papers).
 ├ models                <- Trained and serialized models, model predictions, or model summaries.
-├ notebooks             <- Jupyter notebooks. Naming convention is a of the form
+├ notebooks             <- Jupyter notebooks. Suggested naming convention is a of the form
 │                          <step>.<version>-<initials>-<description>.ipynb
 │                          For example 01.0-PH-really-interesting-analysis.ipynb.
 ├ outputs               <- Generated outputs, such as figures or reports.
-├ resources             <- Useful resources (e.g. relevant papers).
-├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
-├ setup.py              <- Allows pip installation of src as a package.
+├ requirements.txt      <- Python requirements file for reproducing the analysis environment. 
 └ src                   <- Source code for use in the project.
     ├ package_name
-    │   ├ __init__.py
+    │   └ __init__.py
     ├ tests
     │   └ __init__.py
     └ setup.py

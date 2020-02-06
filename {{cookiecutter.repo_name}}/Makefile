@@ -1,30 +1,26 @@
-.PHONY: create-environment clean lint
-
-#################################################################################
-# GLOBALS                                                                       #
-#################################################################################
-
-PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-PROJECT_NAME = {{ cookiecutter.repo_name }}
+.PHONY: environment clean lint test
 
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
 
-create-environment: ## Create Python virtual environment and install dependencies.
+environment: ## Create Python virtual environment and install dependencies.
 	@echo "Creating environment..."
-	@python -m venv $(PROJECT_DIR)/venv
+	@python -m venv venv
 	@( \
-		. $(PROJECT_DIR)/venv/bin/activate;\
+		. venv/bin/activate;\
 		pip install -U pip setuptools wheel;\
-		pip install -r $(PROJECT_DIR)/requirements.txt;\
+		pip install -r requirements.txt;\
 	)
 
 clean: ## Clean environment.
-	rm -rf $(PROJECT_DIR)/venv
+	@rm -rf venv .pytest_cache
 
 lint: ## Lint source code.
-	flake8 $(PROJECT_DIR)/src/{{ cookiecutter.package_name }}
+	@flake8 src/{{ cookiecutter.package_name }}
+
+test: ## Run tests.
+	@pytest
 
 #################################################################################
 # Self Documenting Commands                                                     #

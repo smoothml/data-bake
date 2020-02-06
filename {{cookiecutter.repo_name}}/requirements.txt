@@ -4,14 +4,9 @@
 # external requirements
 python-dotenv>=0.10.0
 flake8
-{% if cookiecutter.dvc_remote_type == 'Amazon S3' %}
-dvc[s3]
-{% elif cookiecutter.dvc_remote_type == 'Google Cloud Storage' %}
-dvc[gs]
-{% elif cookiecutter.dvc_remote_type == 'Azure' %}
-dvc[azure]
-{% elif cookiecutter.dvc_remote_type == 'SSH' %}
-dvc[ssh]
-{% elif cookiecutter.dvc_remote_type == 'HDFS' %}
-dvc
-{% endif %}
+pytest{% if cookiecutter.dvc_remote_type == 'Amazon S3' %}
+dvc[s3]{% elif cookiecutter.dvc_remote_type == 'Google Cloud Storage' %}
+dvc[gs]{% elif cookiecutter.dvc_remote_type == 'Azure' %}
+dvc[azure]{% elif cookiecutter.dvc_remote_type == 'SSH' %}
+dvc[ssh]{% elif cookiecutter.dvc_remote_type == 'All' %}
+dvc{% endif %}
