@@ -4,7 +4,7 @@
 
 ## Requirements
 * [GNU Make](https://www.gnu.org/software/make/)
-* Python 3.5 or above
+* Python 3.7 or above
 
 ## Usage
 ### `make` commands

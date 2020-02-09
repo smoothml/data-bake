@@ -7,8 +7,8 @@ This project template makes certain assumptions. These are:
 * You're working in a *nix environment. Cookiecutter will give you project structure in Windows, but some features of this template may not work.
 
 ## Requirements
-* Python >= 3.5.
-* [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.6.0
+* Python >= 3.7.
+* [Cookiecutter](https://cookiecutter.readthedocs.io) >= 1.7.0
 * [Make](https://www.gnu.org/software/make/)
 
 ## Usage

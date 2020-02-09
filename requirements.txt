@@ -1,0 +1,4 @@
+cookiecutter<2.0,>=1.7
+pytest<6.0,>=5.3
+pytest-cookies<1.0,>=0.5
+flake8<4.0,>=3.7
