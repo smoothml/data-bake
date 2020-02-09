@@ -1,4 +1,5 @@
 # Simple Data Science Cookiecutter
+[![Build Status](https://travis-ci.org/smoothml/cookiecutter-simple-data-science.svg?branch=master)](https://travis-ci.org/smoothml/cookiecutter-simple-data-science)  
 A template data science project structure. This is a simplified version of the excellent [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science).
 
 ## Assumptions
