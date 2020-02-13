@@ -15,7 +15,7 @@ This project template makes certain assumptions. These are:
 ## Usage
 To start a new project, run:
 ```
-cookiecutter https://github.com/smoothml/cookiecutter-simple-data-science
+cookiecutter https://github.com/smoothml/data-bake
 ```
 You will be asked to provide the variables described below.
 
