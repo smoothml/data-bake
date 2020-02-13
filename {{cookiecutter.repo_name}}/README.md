@@ -47,4 +47,4 @@ This project uses [DVC](https://dvc.org/) with the {{ cookiecutter.dvc_remote_ty
     │   └ __init__.py
     └ setup.py
 ```
-Project based on the [Cookiecutter](https://cookiecutter.readthedocs.io) [simple data science](https://github.com/smoothml/cookiecutter-simple-data-science) project template.
+Project based on the [DataBake](https://github.com/smoothml/data-bake) template.
