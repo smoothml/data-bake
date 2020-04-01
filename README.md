@@ -1,5 +1,5 @@
 # DataBake - A Simple Data Science Project Template
-[![Build Status](https://travis-ci.org/smoothml/cookiecutter-simple-data-science.svg?branch=master)](https://travis-ci.org/smoothml/cookiecutter-simple-data-science)  
+[![Build Status](https://travis-ci.org/smoothml/data-bake.svg?branch=master)](https://travis-ci.org/smoothml/data-bake)  
 DataBake is a simple data science project template based on the [Cookiecutter](https://cookiecutter.readthedocs.io) templating engine and heavily inspired by the excellent [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science).
 
 ## Assumptions
