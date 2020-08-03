@@ -6,7 +6,7 @@
 
 environment: ## Create Python virtual environment and install dependencies.
 	@echo "Creating environment..."
-	@python3 -m venv venv
+	@python{{ cookiecutter.python_version }} -m venv venv
 	@( \
 		. venv/bin/activate;\
 		pip install -U pip setuptools wheel;\
