@@ -1,4 +1,4 @@
-.PHONY: environment clean lint test
+.PHONY: environment clean format test
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -14,10 +14,10 @@ environment: ## Create Python virtual environment and install dependencies.
 	)
 
 clean: ## Clean environment.
-	@rm -rf venv .pytest_cache
+	@rm -rf venv .pytest_cache **/*.egg-info *.egg-info **/.ipynb_checkpoints **/__pycache__
 
-lint: ## Lint source code.
-	@flake8 src/{{ cookiecutter.package_name }}
+format: ## Format source code.
+	@black src/
 
 test: ## Run tests.
 	@pytest
