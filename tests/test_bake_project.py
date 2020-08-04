@@ -70,12 +70,22 @@ def test_bake_with_license(cookies):
 
 def test_bake_with_dvc(cookies):
     with bake_in_temp_dir(
-        cookies, extra_context={"dvc_remote_type": "Amazon S3"}
+        cookies,
+        extra_context={"dvc_remote_type": "Amazon S3", "package_manager": "pip"},
     ) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
         assert "dvc[s3]" in result.project.join("requirements.txt").read()
+    
+    with bake_in_temp_dir(
+        cookies,
+        extra_context={"dvc_remote_type": "Amazon S3", "package_manager": "conda"},
+    ) as result:
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+        assert "dvc[s3]" in result.project.join("environment.yaml").read()
 
 
 def test_bake_with_pip(cookies):
@@ -106,10 +116,13 @@ def test_bake_with_python_version(cookies):
                 f"python{python_version} -m venv venv"
                 in result.project.join("Makefile").read()
             )
-        
+
         with bake_in_temp_dir(
             cookies,
-            extra_context={"python_version": python_version, "package_manager": "conda"},
+            extra_context={
+                "python_version": python_version,
+                "package_manager": "conda",
+            },
         ) as result:
             assert result.project.isdir()
             assert result.exit_code == 0
