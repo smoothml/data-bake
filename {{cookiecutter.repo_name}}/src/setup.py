@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 NAME = "{{ cookiecutter.repo_name }}"
 DESCRIPTION = "{{ cookiecutter.description }}"
-REQUIRES_PYTHON = ">=3.5.0"
+REQUIRES_PYTHON = ">=3.6.0"
 AUTHOR = "{{ cookiecutter.author_name }}"
 
 ROOT_DIR = Path(__file__).resolve().parent
