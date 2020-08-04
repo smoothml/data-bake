@@ -72,3 +72,19 @@ def test_bake_with_dvc(cookies):
         assert result.exit_code == 0
         assert result.exception is None
         assert 'dvc[s3]' in result.project.join('requirements.txt').read()
+
+
+def test_bake_with_pip(cookies):
+    with bake_in_temp_dir(cookies, extra_context={'package_manager': 'pip'}) as result:
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        found_toplevel_files = [f.basename for f in result.project.listdir()]
+        assert 'environment.yaml' not in found_toplevel_files
+        assert 'requirements.txt' in found_toplevel_files
+
+        assert 'pip install -r requirements.txt' in result.project.join('Makefile').read()
+
+
+
