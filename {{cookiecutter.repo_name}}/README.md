@@ -11,7 +11,7 @@
 
 | Command                   | Description |
 | ------------------------- | ----------- |
-| `make environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/). |
+| `make environment` | Create a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/) using [Poetry](https://python-poetry.org/). |
 | `make clean` | Remove Python virtual environment. |
 | `make lint` | Run [Flake8](https://flake8.pycqa.org) linting. |
 | `make test` | Run tests with [PyTest](https://pytest.org). |
@@ -40,11 +40,9 @@ This project uses [DVC](https://dvc.org/) with the {{ cookiecutter.dvc_remote_ty
 ├ notebooks             <- Jupyter notebooks.
 ├ outputs               <- Generated outputs, such as figures or reports.
 ├ requirements.txt      <- Python requirements file for reproducing the analysis environment.
-└ src                   <- Source code for use in the project comprising a Python package and tests.
-    ├ {{ cookiecutter.package_name }}
-    │   └ __init__.py
-    ├ tests
-    │   └ __init__.py
-    └ setup.py
+├ {{ cookiecutter.package_name }} <- Source code for use in the project.
+│   └ __init__.py
+└ tests
+    └ __init__.py
 ```
 Project based on the [DataBake](https://github.com/smoothml/data-bake) template.
