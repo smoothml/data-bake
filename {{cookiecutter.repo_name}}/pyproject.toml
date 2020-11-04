@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "{{ cookiecutter.repo_name }}"
+version = "0.0.1"
+description = "{{ cookiecutter.description }}"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]{% if cookiecutter.license != 'None' %}
+license = "{{ cookiecutter.license }}"{% endif %}
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version }}"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+flake8 = "*"
+pytest = "*"
+python-dotenv = "*"{% if cookiecutter.dvc_remote_type == 'Amazon S3' %}
+dvc[s3] = "*"{% elif cookiecutter.dvc_remote_type == 'Google Cloud Storage' %}
+dvc[gs] = "*"{% elif cookiecutter.dvc_remote_type == 'Azure' %}
+dvc[azure] = "*"{% elif cookiecutter.dvc_remote_type == 'SSH' %}
+dvc[ssh] = "*"{% elif cookiecutter.dvc_remote_type == 'All' %}
+dvc = "*"{% endif %}
+
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

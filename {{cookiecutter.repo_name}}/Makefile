@@ -6,18 +6,13 @@
 
 environment: ## Create Python virtual environment and install dependencies.
 	@echo "Creating environment..."
-	{% if cookiecutter.package_manager == 'pip' %}@python{{ cookiecutter.python_version }} -m venv venv
-	@( \
-		. venv/bin/activate;\
-		pip install -U pip setuptools wheel;\
-		pip install -r requirements.txt;\
-	){% elif cookiecutter.package_manager == 'conda' %}@conda env create -f environment.yaml{% endif %}
+	@poetry install
 
 clean: ## Clean environment.
-	@rm -rf venv .pytest_cache **/*.egg-info *.egg-info **/.ipynb_checkpoints **/__pycache__
+	@rm -rf .pytest_cache **/*.egg-info *.egg-info **/.ipynb_checkpoints **/__pycache__
 
 format: ## Format source code.
-	@black src/
+	@black .
 
 test: ## Run tests.
 	@pytest

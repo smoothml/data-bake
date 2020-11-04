@@ -2,12 +2,9 @@
     "project_name": "project_name",
     "repo_name": "{{ cookiecutter.project_name|lower|replace(' ', '-')|replace('_', '-') }}",
     "package_name": "{{ cookiecutter.repo_name|replace('-', '_') }}",
-    "author_name": "Your name (or your organization/company/team)",
+    "author_name": "Your name or your organization name",
+	"author_email": "your@email.com",
 	"description": "A short description of the project.",
-	"package_manager": [
-		"pip",
-		"conda"
-	],
 	"python_version": [
 		"3.8",
 		"3.7",
