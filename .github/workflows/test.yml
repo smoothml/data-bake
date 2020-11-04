@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.chach-deps.outputs.cache-hit != 'true'
-        run: make environment
+        run: . ./venv/bin/activate && make environment
 
       - name: Run tests
         run: make test
