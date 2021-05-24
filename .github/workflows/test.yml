@@ -24,7 +24,5 @@ jobs:
           poetry-version: 1.1.4
       - name: Install dependencies
         run: make install
-      - name: Check code quality
-        run: make quality
       - name: Run tests
         run: make test
