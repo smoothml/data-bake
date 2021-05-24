@@ -5,5 +5,5 @@
   "author_name": "Your name or your organization name",
   "author_email": "your@email.com",
   "description": "A short description of the project.",
-  "python_version": ["3.8", "3.9"]
+  "python_version": ["3.9", "3.8"]
 }
