@@ -1,5 +1,5 @@
 # Data Bake
-![Tests](https://github.com/smoothml/data-bake/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/smoothml/data-bake/actions/workflows/test.yml/badge.svg)
 
 DataBake is a simple data science project template based on the [Cookiecutter](https://cookiecutter.readthedocs.io) templating engine and heavily inspired by the excellent [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science).
 
